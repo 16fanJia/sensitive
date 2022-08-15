@@ -94,13 +94,13 @@ func (f *Filter) LoadWordDict(path string) error {
 	defer file.Close()
 
 	//加载文件内容
-	if err = f.Load(file); err != nil {
+	if err = f.load(file); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (f *Filter) Load(file *os.File) error {
+func (f *Filter) load(file *os.File) error {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
